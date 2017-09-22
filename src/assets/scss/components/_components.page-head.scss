@@ -1,0 +1,18 @@
+.c-page-head {
+    height: 80px;
+    background-color: #07bc7e;
+
+
+    &__logo {
+        display: inline-block;
+        color: #fff;
+        padding-top: 10px;
+
+        @include font-size(30px);
+    }
+
+    &__logo a {
+        color: #fff;
+        text-decoration: none;
+    }
+}

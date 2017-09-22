@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sass main.scss:main.min.css --scss --watch --sourcemap=none --style compressed

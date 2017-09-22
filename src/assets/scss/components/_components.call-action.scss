@@ -1,0 +1,18 @@
+.c-call-action {
+    padding: 45px;
+    margin: 0 auto;
+    width: 700px;
+    text-align: center;
+
+    &__title {
+        @include font-size(30px, 1.2em);
+
+        @include mq($from: mobile, $until: desktop) {
+            @include font-size(20px);
+        }
+    }
+
+    @include mq($from: mobile, $until: desktop) {
+        width: auto;
+    }
+}

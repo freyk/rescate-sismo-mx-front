@@ -1,0 +1,19 @@
+.c-main-nav {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    padding-top: 24px;
+
+
+    li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        @include font-size(18px);
+    }
+}

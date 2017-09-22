@@ -1,0 +1,15 @@
+.c-page-foot {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #3d3d45;
+
+    &__copy {
+        text-align: center;
+        color: #fff;
+        padding: 0;
+        margin: 10px 0;
+    }
+}
