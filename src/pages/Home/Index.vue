@@ -9,7 +9,7 @@
            </router-link>
         </div>
 
-        <v-people-search></v-people-search>
+        <v-people-search v-on:do-search="doSearch()" v-bind:teaser="person"></v-people-search>
      </div>
   </v-layout>
 </template>
@@ -37,6 +37,24 @@
     components: {
       VLayout,
       VPeopleSearch,
+    },
+
+    data() {
+      return {
+        person: {
+          name: '',
+          firstName: '',
+          lastName: '',
+        },
+      };
+    },
+
+    methods: {
+
+      doSearch() {
+        this.$router.push({ name: 'people.index', params: { teaser: this.person } });
+      },
+
     },
   };
 </script>

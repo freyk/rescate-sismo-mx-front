@@ -5,35 +5,24 @@
            <div class="c-people-search__form">
               <div class="c-people-search__inputs-container">
                  <div class="c-people-search__input-wrap">
-                    <input type="text" name="" value="" class="c-people-search__input" placeholder="Nombres">
+                    <input type="text" class="c-people-search__input" placeholder="Nombres" v-model="teaser.name">
                  </div><!--
                --><div class="c-people-search__input-wrap">
-                    <input type="text" name="" value="" class="c-people-search__input" placeholder="Apellido Paterno">
+                    <input type="text" class="c-people-search__input" placeholder="Apellido Paterno" v-model="teaser.firstName">
                  </div><!--
               --><div class="c-people-search__input-wrap">
-                    <input type="text" name="" value="" class="c-people-search__input" placeholder="Apellido Materno">
+                    <input type="text" class="c-people-search__input" placeholder="Apellido Materno" v-model="teaser.lastName">
                  </div>
               </div><!--
 
            --><div class="c-people-search__btn-container">
-                 <button class="c-people-search__btn c-btn c-btn--secondary"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+                 <button class="c-people-search__btn c-btn c-btn--secondary" v-on:click="doSearch()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
               </div>
            </div>
         </div>
 </template>
 
 <script>
-  /* ============
-   * Card Component
-   * ============
-   *
-   * A basic card component.
-   *
-   * Gives an idea how components work.
-   */
-
-  import SlotMixin from '@/mixins/slot';
-
   export default {
     /**
      * The name of the component.
@@ -41,17 +30,37 @@
     name: 'people-search',
 
     /**
-     * The mixins that the component can use.
+     * The custom props of the component.
      */
-    mixins: [
-      SlotMixin,
-    ],
+    props: {
+      teaser: {
+        type: Object,
+        default() {
+          return {
+            name: null,
+            firstName: null,
+            lastName: null,
+          };
+        },
+      },
+    },
 
-    /**
-     * The computed properties that the component can use.
-     */
-    computed: {
+    methods: {
 
+      doSearch() {
+        this.$emit('do-search');
+        this.setTerm();
+      },
+
+      setTerm() {
+        const term = [this.teaser.name, this.teaser.firstName, this.teaser.lastName].join(' ');
+
+        this.$emit('get-term', term);
+      },
+    },
+
+    created() {
+      this.setTerm();
     },
   };
 </script>

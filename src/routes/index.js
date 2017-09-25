@@ -24,6 +24,12 @@ export default [
     component: () => import('@/pages/People/add'),
   },
 
+  {
+    path: '/resultado-busqueda',
+    name: 'people.index',
+    component: () => import('@/pages/People/index'),
+  },
+
   // Account
   {
     path: '/account',

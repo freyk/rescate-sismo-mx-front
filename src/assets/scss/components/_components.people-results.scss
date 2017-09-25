@@ -1,0 +1,27 @@
+.c-people-results {
+
+    &__title {
+        margin-top: $inuit-global-spacing-unit;
+    }
+
+    &__content {
+        border: 1px solid #ccc;
+    }
+
+    &__item {
+        border-top: 1px solid #ccc;
+        padding: 15px;
+    }
+
+    &__item:first-child {
+        border-top: 0;
+    }
+
+    &__name {
+        margin: 0;
+    }
+
+    &__age {
+        color: #757575;
+    }
+}
