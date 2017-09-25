@@ -53,14 +53,41 @@
       },
 
       setTerm() {
-        const term = [this.teaser.name, this.teaser.firstName, this.teaser.lastName].join(' ');
+        const term = this.formatFullName([
+          this.teaser.name,
+          this.teaser.firstName,
+          this.teaser.lastName,
+        ]);
 
         this.$emit('get-term', term);
       },
+
+      formatFullName(items) {
+        let result = '';
+        let newItems = [];
+
+        if (typeof items !== 'object') {
+          throw new Error('Expected items variable needs to be array');
+        }
+
+        newItems = items.filter((item) => {
+          if (item === null || item === '') {
+            return false;
+          }
+
+          return true;
+        });
+
+        newItems.forEach((item, index) => {
+          result += ((index + 1) === newItems.length) ? `${item}` : `${item} `;
+        });
+
+        return result;
+      },
     },
 
-    created() {
-      this.setTerm();
+    mounted() {
+      this.$nextTick(() => this.setTerm());
     },
   };
 </script>
